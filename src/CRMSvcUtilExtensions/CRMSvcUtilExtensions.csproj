@@ -99,6 +99,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="OrganizationServiceFactory.cs" />
+    <Compile Include="Parameters.cs" />
+    <Compile Include="SolutionFilter.cs" />
     <Compile Include="VanillaFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
