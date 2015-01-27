@@ -80,8 +80,27 @@ namespace CRMSvcUtilExtensions
             };
             RetrieveAllEntitiesResponse allEntitiesResponse = (RetrieveAllEntitiesResponse)service.Execute(allEntitiesrequest);
             
-            var entitiesInSolution = allEntitiesResponse.EntityMetadata.Join(componentCollection.Entities.Select(x => x.Attributes["objectid"]), x => x.MetadataId, y => y, (x, y) => x);
+            var entitiesInSolution = allEntitiesResponse.EntityMetadata.Join(componentCollection.Entities.Select(x => x.Attributes["objectid"]), x => x.MetadataId, y => y, (x, y) => x).ToList();
+            if(entitiesInSolution.Any(a => a.IsActivity.HasValue && a.IsActivity.Value))
+            {
+                entitiesInSolution.Add(getActivityParty(service));
+            }
+
             return entitiesInSolution;
+        }
+
+        public EntityMetadata getActivityParty(IOrganizationService service)
+        {
+            var request = new RetrieveEntityRequest
+            {
+                EntityFilters = EntityFilters.Entity,
+                LogicalName = "activityparty",
+                RetrieveAsIfPublished = true
+            };
+
+            var response = (RetrieveEntityResponse)service.Execute(request);
+                
+            return response.EntityMetadata;
         }
     }
 }
