@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>@project@</id>
+    <version>@build.number@</version>
+    <authors>@authors@</authors>
+    <title>@project@</title>
+    <licenseUrl>https://github.com/bassetassen/crmsvcutilextensions/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/bassetassen/crmsvcutilextensions</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>@description@</description>
+    <releaseNotes>@releaseNotes@</releaseNotes>
+    <copyright>Copyright 2015</copyright>
+    <tags>Dynamics CRM XRM CRMSvcUtil</tags>
+  </metadata>
+</package>
