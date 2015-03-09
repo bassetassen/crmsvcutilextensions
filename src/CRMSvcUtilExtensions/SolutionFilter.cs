@@ -83,23 +83,28 @@ namespace CRMSvcUtilExtensions
             var entitiesInSolution = allEntitiesResponse.EntityMetadata.Join(componentCollection.Entities.Select(x => x.Attributes["objectid"]), x => x.MetadataId, y => y, (x, y) => x).ToList();
             if(entitiesInSolution.Any(a => a.IsActivity.HasValue && a.IsActivity.Value))
             {
-                entitiesInSolution.Add(getActivityParty(service));
+                entitiesInSolution.Add(getEntityMetadata("activityparty", service));
+            }
+
+            if (entitiesInSolution.Any(a => a.LogicalName == "service"))
+            {
+                entitiesInSolution.Add(getEntityMetadata("calendarrule", service));
             }
 
             return entitiesInSolution;
         }
 
-        public EntityMetadata getActivityParty(IOrganizationService service)
+        public EntityMetadata getEntityMetadata(string entityLogicalName, IOrganizationService service)
         {
             var request = new RetrieveEntityRequest
             {
                 EntityFilters = EntityFilters.Entity,
-                LogicalName = "activityparty",
+                LogicalName = entityLogicalName,
                 RetrieveAsIfPublished = true
             };
 
             var response = (RetrieveEntityResponse)service.Execute(request);
-                
+
             return response.EntityMetadata;
         }
     }

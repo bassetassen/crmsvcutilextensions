@@ -5,7 +5,7 @@ open Fake.AssemblyInfoFile
 let buildDir = "./build/"
 
 let projectName = "CRMSvcUtilExtensions"
-let version = "1.0.0"
+let version = "1.0.1"
 let authors = ["Sebastian Holager"]
 let description = "A library with extensions to CRMSvcUtil"
 let releasenotes = ""
