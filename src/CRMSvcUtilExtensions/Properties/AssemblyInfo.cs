@@ -6,10 +6,10 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescriptionAttribute("A library with extensions to CRMSvcUtil")]
 [assembly: AssemblyProductAttribute("CRMSvcUtilExtensions")]
 [assembly: GuidAttribute("76e6ae49-230a-472b-a132-e8ad2f821e64")]
-[assembly: AssemblyVersionAttribute("1.0.0")]
-[assembly: AssemblyFileVersionAttribute("1.0.0")]
+[assembly: AssemblyVersionAttribute("1.0.1")]
+[assembly: AssemblyFileVersionAttribute("1.0.1")]
 namespace System {
     internal static class AssemblyVersionInformation {
-        internal const string Version = "1.0.0";
+        internal const string Version = "1.0.1";
     }
 }
