@@ -60,6 +60,8 @@ namespace CRMSvcUtilExtensions
 
         public IEnumerable<EntityMetadata> getSolutionEntities(string solutionUniqueName, IOrganizationService service)
         {
+            var solutionNames = solutionUniqueName.Split(new[] {","}, StringSplitOptions.RemoveEmptyEntries).Cast<object>();
+
             QueryExpression componentsQuery = new QueryExpression
             {
                 EntityName = "solutioncomponent",
@@ -68,7 +70,7 @@ namespace CRMSvcUtilExtensions
             };
             LinkEntity solutionLink = new LinkEntity("solutioncomponent", "solution", "solutionid", "solutionid", JoinOperator.Inner);
             solutionLink.LinkCriteria = new FilterExpression();
-            solutionLink.LinkCriteria.AddCondition(new ConditionExpression("uniquename", ConditionOperator.Equal, solutionUniqueName));
+            solutionLink.LinkCriteria.AddCondition(new ConditionExpression("uniquename", ConditionOperator.In, solutionNames));
             componentsQuery.LinkEntities.Add(solutionLink);
             componentsQuery.Criteria.AddCondition(new ConditionExpression("componenttype", ConditionOperator.Equal, 1));
             EntityCollection componentCollection = service.RetrieveMultiple(componentsQuery);
