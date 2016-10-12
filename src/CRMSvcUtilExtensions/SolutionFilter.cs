@@ -58,7 +58,7 @@ namespace CRMSvcUtilExtensions
             return defaultService.GenerateServiceContext(services);
         }
 
-        public IEnumerable<EntityMetadata> getSolutionEntities(string solutionUniqueName, IOrganizationService service)
+        private IEnumerable<EntityMetadata> getSolutionEntities(string solutionUniqueName, IOrganizationService service)
         {
             var solutionNames = solutionUniqueName.Split(new[] {","}, StringSplitOptions.RemoveEmptyEntries).Cast<object>();
 
@@ -96,7 +96,7 @@ namespace CRMSvcUtilExtensions
             return entitiesInSolution;
         }
 
-        public EntityMetadata getEntityMetadata(string entityLogicalName, IOrganizationService service)
+        private EntityMetadata getEntityMetadata(string entityLogicalName, IOrganizationService service)
         {
             var request = new RetrieveEntityRequest
             {
