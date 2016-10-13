@@ -70,7 +70,8 @@ namespace CRMSvcUtilExtensions
             };
             LinkEntity solutionLink = new LinkEntity("solutioncomponent", "solution", "solutionid", "solutionid", JoinOperator.Inner);
             solutionLink.LinkCriteria = new FilterExpression();
-            solutionLink.LinkCriteria.AddCondition(new ConditionExpression("uniquename", ConditionOperator.In, solutionNames));
+            var condition = new ConditionExpression("uniquename", ConditionOperator.In, (object[])solutionNames);
+            solutionLink.LinkCriteria.AddCondition(condition);
             componentsQuery.LinkEntities.Add(solutionLink);
             componentsQuery.Criteria.AddCondition(new ConditionExpression("componenttype", ConditionOperator.Equal, 1));
             EntityCollection componentCollection = service.RetrieveMultiple(componentsQuery);
