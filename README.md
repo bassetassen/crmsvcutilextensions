@@ -16,7 +16,7 @@ CrmSvcUtil /codewriterfilter:"CRMSvcUtilExtensions.VanillaFilter,CRMSvcUtilExten
 ```
 
 SolutionFilter:
-Solution argument is unique solution name
+Solution argument is unique solution name or a comma-separated list of solutions
 ```
 CrmSvcUtil /codewriterfilter:"CRMSvcUtilExtensions.SolutionFilter,CRMSvcUtilExtensions"
 /solution:uniquename /url:... /out:D:\Entities.cs /username:... /password:... /namespace:...

@@ -1,14 +1,14 @@
 ﻿#r @"packages/FAKE/tools/FakeLib.dll"
 open Fake
 open Fake.AssemblyInfoFile
+open Fake.ReleaseNotesHelper
 
 let buildDir = "./build/"
 
 let projectName = "CRMSvcUtilExtensions"
-let version = "1.0.1"
 let authors = ["Sebastian Holager"]
 let description = "A library with extensions to CRMSvcUtil"
-let releasenotes = ""
+let release = LoadReleaseNotes "RELEASE_NOTES.md"
 let apiKey = getBuildParam "apiKey"
 
 Target "Clean" (fun _ ->
@@ -23,8 +23,8 @@ Target "Build" (fun _ ->
          Attribute.Description description
          Attribute.Product projectName
          Attribute.Guid "76e6ae49-230a-472b-a132-e8ad2f821e64"
-         Attribute.Version version
-         Attribute.FileVersion version]
+         Attribute.Version release.AssemblyVersion
+         Attribute.FileVersion release.AssemblyVersion]
 
     !! "/**/*.csproj"
       |> MSBuildRelease buildDir "Build"
@@ -38,14 +38,14 @@ Target "Release" (fun _ ->
 
     CopyFile net45Dir (buildDir @@ "CRMSvcUtilExtensions.dll")
 
-    NuGet (fun p -> 
+    NuGet (fun p ->
         {p with
             Project = projectName
             Authors = authors
-            Version = version
+            Version = release.NugetVersion
             OutputPath = packageDir
             WorkingDir = packageDir
-            ReleaseNotes = releasenotes
+            ReleaseNotes = release.Notes |> toLines
             Description = description
             AccessKey = apiKey
             Publish = hasBuildParam "apiKey" })
