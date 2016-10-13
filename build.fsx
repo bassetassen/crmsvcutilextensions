@@ -48,7 +48,8 @@ Target "Release" (fun _ ->
             ReleaseNotes = release.Notes |> toLines
             Description = description
             AccessKey = apiKey
-            Publish = hasBuildParam "apiKey" })
+            Publish = hasBuildParam "apiKey"
+            PublishUrl = "https://www.nuget.org/api/v2/package" })
         "./src/CRMSvcUtilExtensions/CRMSvcUtilExtensions.nuspec"
 )
 
