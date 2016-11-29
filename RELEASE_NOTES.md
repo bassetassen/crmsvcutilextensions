@@ -1,3 +1,6 @@
+### 1.2.1 - 29.11.2016
+* Added Microsoft.CrmSdk.Extensions as a dependency in nuspec
+
 ### 1.2.0 - 29.11.2016
 * Updated SDK packages
 
