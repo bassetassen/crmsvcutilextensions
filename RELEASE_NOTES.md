@@ -1,3 +1,6 @@
+### 1.2.0 - 29.11.2016
+* Updated SDK packages
+
 ### 1.1.1 - 13.10.2016
 * Fixed filter with multiple solutions, ConditionExpression did not understand that array had several values
 
