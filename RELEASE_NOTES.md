@@ -1,3 +1,6 @@
+### 1.3.0 - 30.11.2016
+* Using SDK core tools package 8.1 instead of 8.2. 8.2 had trouble logging in on some online instances 
+
 ### 1.2.1 - 29.11.2016
 * Added Microsoft.CrmSdk.Extensions as a dependency in nuspec
 
