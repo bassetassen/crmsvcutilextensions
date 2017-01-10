@@ -35,9 +35,6 @@ Target "Release" (fun _ ->
     let packageDir = "./packaging/"
     let net45Dir = packageDir @@ "lib/net45/"
     CleanDirs [packageDir;net45Dir]
-    let dependencies = [
-        "Microsoft.CrmSdk.Extensions", GetPackageVersion "./packages" "Microsoft.CrmSdk.Extensions"
-    ]
 
     CopyFile net45Dir (buildDir @@ "CRMSvcUtilExtensions.dll")
 
@@ -50,7 +47,6 @@ Target "Release" (fun _ ->
             WorkingDir = packageDir
             ReleaseNotes = release.Notes |> toLines
             Description = description
-            Dependencies = dependencies
             AccessKey = apiKey
             Publish = hasBuildParam "apiKey"
             PublishUrl = "https://www.nuget.org/api/v2/package" })

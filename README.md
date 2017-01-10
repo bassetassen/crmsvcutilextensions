@@ -21,3 +21,9 @@ Solution argument is unique solution name or a comma-separated list of solutions
 CrmSvcUtil /codewriterfilter:"CRMSvcUtilExtensions.SolutionFilter,CRMSvcUtilExtensions"
 /solution:uniquename /url:... /out:D:\Entities.cs /username:... /password:... /namespace:...
 ```
+
+Can use username and password parameter as examples above or connectionstring parameter.
+```
+CrmSvcUtil /codewriterfilter:"CRMSvcUtilExtensions.SolutionFilter,CRMSvcUtilExtensions"
+/solution:uniquename /connectionstring:"AuthType=Office365;Username=jsmith@contoso.onmicrosoft.com; Password=passcode;Url=https://contoso.crm.dynamics.com" /out:D:\Entities.cs /namespace:...
+```
