@@ -1,5 +1,4 @@
-﻿using Microsoft.Xrm.Client;
-using Microsoft.Xrm.Client.Services;
+﻿using Microsoft.Xrm.Tooling.Connector;
 using Microsoft.Xrm.Sdk;
 
 namespace CRMSvcUtilExtensions
@@ -8,9 +7,13 @@ namespace CRMSvcUtilExtensions
     {
         public IOrganizationService Create()
         {
-            var connectionString = string.Format("Url={0}; Username={1}; Password={2};", Parameters.GetParameter("url"), Parameters.GetParameter("username"), Parameters.GetParameter("password"));
-            var connection = CrmConnection.Parse(connectionString);
-            var service = new OrganizationService(connection);
+            string authType = Parameters.GetParameter("authtype") ?? "Office365";
+            string connectionString = (Parameters.GetParameter("connectionstring") ??
+                                       Parameters.GetParameter("connstr")) ??
+                                       $"AuthType={authType};Url={Parameters.GetParameter("url")}; Username={Parameters.GetParameter("username")}; Password={Parameters.GetParameter("password")};";
+
+            var connection = new CrmServiceClient(connectionString);
+            var service = (IOrganizationService)connection.OrganizationWebProxyClient ?? (IOrganizationService)connection.OrganizationServiceProxy;
 
             return service;
         }
