@@ -32,7 +32,7 @@ Target "Build" (fun _ ->
       |> Log "Build-Output: "
 )
 
-Target "Release" (fun _ ->
+Target "Package" (fun _ ->
     let packageDir = "./packaging/"
     let net462Dir = packageDir @@ "lib/net462/"
     CleanDirs [packageDir;net462Dir]
@@ -61,6 +61,6 @@ Target "Release" (fun _ ->
   ==> "Build"
 
 "Build"
-  ==> "Release"
+  ==> "Package"
 
-RunTargetOrDefault "Build"
+RunTargetOrDefault "Package"
