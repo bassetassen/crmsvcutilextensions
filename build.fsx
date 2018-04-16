@@ -2,7 +2,7 @@
 open Fake
 open Fake.AssemblyInfoFile
 open Fake.ReleaseNotesHelper
-open Fake.AppVeyor
+open Fake.EnvironmentHelper
 
 let buildDir = "./build/"
 
@@ -14,7 +14,7 @@ let apiKey = getBuildParam "apiKey"
 
 Target "Clean" (fun _ ->
     CleanDir buildDir
-    Environment.setEnvironVar "Version" release.NugetVersion
+    setEnvironVar "Version" release.NugetVersion
 )
 
 Target "Build" (fun _ ->
