@@ -1,3 +1,6 @@
+### 3.0.0 - 16.04.2018
+* Updated to 9.0.x versions of Dynamics packages
+
 ### 2.0.0 - 10.01.2017
 * Removed Microsoft.Xrm.Client
 * Added Microsoft.CrmSdk.XrmTooling

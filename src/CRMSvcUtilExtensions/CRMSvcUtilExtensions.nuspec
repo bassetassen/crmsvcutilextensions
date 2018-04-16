@@ -10,7 +10,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>@description@</description>
     <releaseNotes>@releaseNotes@</releaseNotes>
-    <copyright>Copyright 2015</copyright>
+    <copyright>Copyright 2018</copyright>
     <tags>Dynamics CRM XRM CRMSvcUtil</tags>
     @dependencies@
   </metadata>
