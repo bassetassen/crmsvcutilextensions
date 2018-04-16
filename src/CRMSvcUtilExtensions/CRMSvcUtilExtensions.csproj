@@ -104,7 +104,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="bin\Debug\Entities.cs" />
     <Compile Include="OrganizationServiceFactory.cs" />
     <Compile Include="Parameters.cs" />
     <Compile Include="SolutionFilter.cs" />
