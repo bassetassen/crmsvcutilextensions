@@ -186,3 +186,6 @@ FakesAssemblies/
 
 # VS14
 *.sln.ide/
+
+.fake
+.vs

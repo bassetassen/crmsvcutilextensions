@@ -2,6 +2,7 @@
 open Fake
 open Fake.AssemblyInfoFile
 open Fake.ReleaseNotesHelper
+open Fake.AppVeyor
 
 let buildDir = "./build/"
 
@@ -33,10 +34,11 @@ Target "Build" (fun _ ->
 
 Target "Release" (fun _ ->
     let packageDir = "./packaging/"
-    let net45Dir = packageDir @@ "lib/net45/"
-    CleanDirs [packageDir;net45Dir]
+    let net462Dir = packageDir @@ "lib/net462/"
+    CleanDirs [packageDir;net462Dir]
+    let dependencies = getDependencies "./src/CRMSvcUtilExtensions/packages.config"
 
-    CopyFile net45Dir (buildDir @@ "CRMSvcUtilExtensions.dll")
+    CopyFile net462Dir (buildDir @@ "CRMSvcUtilExtensions.dll")
 
     NuGet (fun p ->
         {p with
@@ -47,6 +49,7 @@ Target "Release" (fun _ ->
             WorkingDir = packageDir
             ReleaseNotes = release.Notes |> toLines
             Description = description
+            Dependencies = dependencies
             AccessKey = apiKey
             Publish = hasBuildParam "apiKey"
             PublishUrl = "https://www.nuget.org/api/v2/package" })
