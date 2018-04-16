@@ -14,6 +14,7 @@ let apiKey = getBuildParam "apiKey"
 
 Target "Clean" (fun _ ->
     CleanDir buildDir
+    Environment.setEnvironVar "Version" release.NugetVersion
 )
 
 Target "Build" (fun _ ->
