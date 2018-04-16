@@ -32,7 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CrmSvcUtil">
-      <HintPath>..\..\packages\Microsoft.CrmSdk.CoreTools.8.2.0.2\content\bin\coretools\CrmSvcUtil.exe</HintPath>
+      <HintPath>..\..\packages\Microsoft.CrmSdk.CoreTools.9.0.0.7\content\bin\coretools\CrmSvcUtil.exe</HintPath>
     </Reference>
     <Reference Include="Microsoft.Crm.Sdk.Proxy, Version=9.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.CrmSdk.CoreAssemblies.9.0.2.2\lib\net452\Microsoft.Crm.Sdk.Proxy.dll</HintPath>
