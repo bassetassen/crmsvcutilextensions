@@ -1,6 +1,8 @@
 CRMSvcUtilExtensions
 ====================
 
+[![Build status](https://ci.appveyor.com/api/projects/status/ra3tvaflxufktox0/branch/master?svg=true)](https://ci.appveyor.com/project/bassetassen/crmsvcutilextensions/branch/master)
+
 A library with extensions to CRMSvcUtil.
 
 Copy crmsvcutilextensions.dll to same folder as CrmSvcUtil. Call CrmSvcUtil with /codefilter parameter
